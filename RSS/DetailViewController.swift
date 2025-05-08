@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var descriptionTextView: UITextView!
+    
 
     override func viewDidLoad() {
         
@@ -33,4 +34,9 @@ class DetailViewController: UIViewController {
                }
     
     }
+    
+    @IBAction func openInBrowserTapped(_ sender: UIButton) {
+          guard let link = newsItem?.link, let url = URL(string: link) else { return }
+          UIApplication.shared.open(url)
+      }
 }
